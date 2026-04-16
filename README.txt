@@ -1,3 +1,5 @@
+	placement Management
+
 Student Module
 
 - Register and login with credentials
