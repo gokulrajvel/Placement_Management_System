@@ -1,12 +1,12 @@
 package com.gokulrajvel.placementmonitoring.features.signup;
 
 public class SignUpModel {
-    SignUpView obj;
+    SignUpView signUpView;
     SignUpModel(SignUpView obj) {
-        this.obj=obj;
+        this.signUpView=obj;
     }
     public void createUser(String username){
 
-        obj.created(username);
+        signUpView.created(username);
     }
 }
