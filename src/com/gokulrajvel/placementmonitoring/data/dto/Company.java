@@ -7,6 +7,9 @@ public class Company {
     private String company_email;
     private String company_phone;
     private String company_website;
+    public Company(){
+
+    }
     public int getCompany_id() {
         return company_id;
     }

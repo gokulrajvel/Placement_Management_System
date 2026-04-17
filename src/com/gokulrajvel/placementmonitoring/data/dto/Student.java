@@ -6,6 +6,7 @@ public class Student {
     private String contactNo;
     private String[] skill;
     private String batch;
+    public Student(){}
     public void  settName(String name) {
         this.name = name;
     }

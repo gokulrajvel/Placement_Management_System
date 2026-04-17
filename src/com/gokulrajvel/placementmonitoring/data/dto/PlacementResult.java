@@ -4,6 +4,7 @@ public class PlacementResult {
     private int resultId;
     private String status;
     private String packageOffer;
+    public PlacementResult(){}
     public void  setResultId(int resultId) {
         this.resultId = resultId;
     }

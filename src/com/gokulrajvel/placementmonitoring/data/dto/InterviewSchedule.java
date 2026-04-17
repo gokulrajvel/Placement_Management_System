@@ -7,6 +7,9 @@ public class InterviewSchedule {
     private Date schedule_date;
     private String schedule_time;
     private String locationOrLink;
+    public InterviewSchedule(){
+
+    }
     public void  setSchedule_id(int schedule_id) {
         this.schedule_id = schedule_id;
     }

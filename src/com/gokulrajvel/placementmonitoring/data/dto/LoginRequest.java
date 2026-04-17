@@ -3,6 +3,9 @@ package com.gokulrajvel.placementmonitoring.data.dto;
 public class LoginRequest {
     private String username;
     private String password;
+    public LoginRequest(){
+
+    }
     public String getUsername() {
         return username;
     }
