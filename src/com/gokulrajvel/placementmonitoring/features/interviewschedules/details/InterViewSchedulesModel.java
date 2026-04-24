@@ -1,4 +1,8 @@
 package com.gokulrajvel.placementmonitoring.features.interviewschedules.details;
 
-public class InterViewSchedulesModel {
+class InterViewSchedulesModel {
+    private InterViewSchedulesView interViewSchedulesView;
+    public InterViewSchedulesModel(InterViewSchedulesView interViewSchedulesView) {
+        this.interViewSchedulesView = interViewSchedulesView;
+    }
 }

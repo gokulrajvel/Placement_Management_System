@@ -1,4 +1,8 @@
 package com.gokulrajvel.placementmonitoring.features.student.details;
 
-public class StudentDetailsModel {
+class StudentDetailsModel {
+    private StudentDetailsView studentDetailsView;
+    public StudentDetailsModel(StudentDetailsView studentDetailsView) {
+        this.studentDetailsView = studentDetailsView;
+    }
 }

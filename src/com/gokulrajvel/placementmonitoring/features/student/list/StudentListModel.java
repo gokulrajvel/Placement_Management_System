@@ -1,4 +1,8 @@
 package com.gokulrajvel.placementmonitoring.features.student.list;
 
-public class StudentListModel {
+class StudentListModel {
+    private StudentListView studentListView;
+    public StudentListModel(StudentListView studentListView) {
+        this.studentListView = studentListView;
+    }
 }
