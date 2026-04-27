@@ -4,6 +4,8 @@ import com.gokulrajvel.placementmonitoring.data.dto.LoginRequest;
 import com.gokulrajvel.placementmonitoring.data.dto.StudentSignUp;
 import com.gokulrajvel.placementmonitoring.data.dto.TeacherSignUp;
 import com.gokulrajvel.placementmonitoring.data.repository.PlacementMonitoringDB;
+import com.gokulrajvel.placementmonitoring.features.student.portal.StudentPortalView;
+import com.gokulrajvel.placementmonitoring.features.teacher.TeacherPortalView;
 
 class SignInModel {
     private final SignInView signInView;
@@ -19,6 +21,7 @@ class SignInModel {
             return;
         }
         signInView.showMessage("Student login successful. Welcome " + student.getName() + ".");
+        new StudentPortalView(student).init();
     }
 
     public void loginTeacher(LoginRequest loginRequest) {
@@ -28,5 +31,6 @@ class SignInModel {
             return;
         }
         signInView.showMessage("Teacher login successful. Welcome " + teacher.getTeacherId() + ".");
+        new TeacherPortalView(teacher).init();
     }
 }

@@ -139,7 +139,7 @@ Recruiter Module
 Non-Functional Requirements
 
 - Secure login with role-based access (Student, Admin, Company, Officer)
-- Password encryption (BCrypt)
+- Password encryption (B-Crypt)
 - Fast search and filter for student profiles
 - Responsive UI
 - Data backup support

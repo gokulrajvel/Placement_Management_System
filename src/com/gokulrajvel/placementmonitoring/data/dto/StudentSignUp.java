@@ -11,6 +11,7 @@ public class StudentSignUp {
     private String[] skill;
     private String batch;
     private Date birthDate;
+    private placeMentStatus placementStatus = placeMentStatus.NOT_PLACED;
     public enum placeMentStatus {
         PLACED, NOT_PLACED;
     }
@@ -80,5 +81,13 @@ public class StudentSignUp {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public placeMentStatus getPlacementStatus() {
+        return placementStatus;
+    }
+
+    public void setPlacementStatus(placeMentStatus placementStatus) {
+        this.placementStatus = placementStatus;
     }
 }
