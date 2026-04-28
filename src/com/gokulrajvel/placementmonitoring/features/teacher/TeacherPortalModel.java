@@ -8,6 +8,15 @@ import com.gokulrajvel.placementmonitoring.data.repository.PlacementMonitoringDB
 import java.util.List;
 
 public class TeacherPortalModel {
+    public void addStudent(StudentSignUp studentSignUp) {
+        boolean isAdded = PlacementMonitoringDB.addStudent(studentSignUp);
+        if (isAdded) {
+            System.out.println("Student account created for " + studentSignUp.getName() + ".");
+            return;
+        }
+        System.out.println("Student email already exists.");
+    }
+
     public void showStudentList() {
         List<StudentSignUp> students = PlacementMonitoringDB.getStudents();
         if (students.isEmpty()) {

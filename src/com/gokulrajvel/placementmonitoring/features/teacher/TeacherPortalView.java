@@ -24,45 +24,64 @@ public class TeacherPortalView {
         while (true) {
             System.out.println();
             System.out.println("Teacher Portal - " + teacher.getTeacherId());
-            System.out.println("1. View All Students");
-            System.out.println("2. Add Company");
-            System.out.println("3. View Companies");
-            System.out.println("4. Update Student Placement Status");
-            System.out.println("5. Schedule Interview");
-            System.out.println("6. View Interview History");
-            System.out.println("7. Update Interview History");
-            System.out.println("8. Logout");
+            System.out.println("1. Add Student");
+            System.out.println("2. View All Students");
+            System.out.println("3. Add Company");
+            System.out.println("4. View Companies");
+            System.out.println("5. Update Student Placement Status");
+            System.out.println("6. Schedule Interview");
+            System.out.println("7. View Interview History");
+            System.out.println("8. Update Interview History");
+            System.out.println("9. Logout");
             System.out.print("Choose an option: ");
             String choice = scanner.nextLine().trim();
 
             switch (choice) {
                 case "1":
-                    teacherPortalModel.showStudentList();
+                    addStudent();
                     break;
                 case "2":
-                    addCompany();
+                    teacherPortalModel.showStudentList();
                     break;
                 case "3":
-                    teacherPortalModel.showCompanyList();
+                    addCompany();
                     break;
                 case "4":
-                    updatePlacementStatus();
+                    teacherPortalModel.showCompanyList();
                     break;
                 case "5":
-                    scheduleInterview();
+                    updatePlacementStatus();
                     break;
                 case "6":
-                    teacherPortalModel.showInterviewHistory();
+                    scheduleInterview();
                     break;
                 case "7":
-                    updateInterviewHistory();
+                    teacherPortalModel.showInterviewHistory();
                     break;
                 case "8":
+                    updateInterviewHistory();
+                    break;
+                case "9":
                     return;
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+
+    private void addStudent() {
+        StudentSignUp studentSignUp = new StudentSignUp();
+        System.out.println();
+        System.out.println("Add Student");
+        studentSignUp.setRegisterNo(readRequired("Register No: "));
+        studentSignUp.settName(readRequired("Name: "));
+        studentSignUp.setEmail(readEmail("Email: "));
+        studentSignUp.setPassword(readPassword("Password: "));
+        studentSignUp.setContactNo(readMobile("Contact No: "));
+        studentSignUp.setBirthDate(readDate("DOB (" + ParseHelper.getDobPattern() + "): "));
+        studentSignUp.setBatch(readRequired("Batch: "));
+        studentSignUp.setSkill(readSkills());
+        teacherPortalModel.addStudent(studentSignUp);
     }
 
     private void addCompany() {
@@ -166,6 +185,15 @@ public class TeacherPortalView {
         return scanner.nextLine().trim();
     }
 
+    private String[] readSkills() {
+        String skills = readRequired("Skills (comma separated): ");
+        String[] parts = skills.split(",");
+        for (int index = 0; index < parts.length; index++) {
+            parts[index] = parts[index].trim();
+        }
+        return parts;
+    }
+
     private String readEmail(String label) {
         while (true) {
             String value = readRequired(label);
@@ -183,6 +211,16 @@ public class TeacherPortalView {
                 return value;
             }
             System.out.println("Enter a valid 10-digit mobile number starting with 6-9.");
+        }
+    }
+
+    private String readPassword(String label) {
+        while (true) {
+            String value = readRequired(label);
+            if (ParseHelper.isValidPassword(value)) {
+                return value;
+            }
+            System.out.println("Password must be at least 8 characters and include letters and numbers.");
         }
     }
 
